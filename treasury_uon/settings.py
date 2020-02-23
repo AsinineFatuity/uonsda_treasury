@@ -87,11 +87,11 @@ WSGI_APPLICATION = 'treasury_uon.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DB_NAME', ''),
-        'PASSWORD': os.getenv('DB_PASSWORD', ''),
-        'HOST': os.getenv('DB_HOST', ''),
-        'USER': os.getenv('DB_USER', ''),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'uonsda_treasury',
+        'USER': 'postgres',
+        'PASSWORD': 'asinine2020',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
