@@ -36,8 +36,6 @@ EMAIL_HOST_PASSWORD = 'luther1996-'
 EMAIL_USE_TLS = True
 EMAIL_SENDER = 'noreply@actserv.com'
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,6 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third-party apps
+    'django_extensions',
+    # local installed apps
+    'mpesa_transactions',
 ]
 
 MIDDLEWARE = [
@@ -85,11 +87,14 @@ WSGI_APPLICATION = 'treasury_uon.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('DB_NAME', ''),
+        'PASSWORD': os.getenv('DB_PASSWORD', ''),
+        'HOST': os.getenv('DB_HOST', ''),
+        'USER': os.getenv('DB_USER', ''),
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
